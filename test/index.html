@@ -1,11 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="./static/init.min.js"></script>
+    <script src="./static/gzip.min.js"></script>
+    <script>
+        (async () => {
+            const loader = new WasmLoader();
+
+            let data = await (await fetch("./../dist/script.min.wasm")).arrayBuffer()
+            
+            let buffer = gzip.ungzip(data);
+            if (buffer[0] === 0x1f && buffer[1] === 0x8b) {
+                buffer = gzip.ungzip(buffer);
+            }
+
+            let result  = await WebAssembly.instantiate(buffer, loader.importObject); loader.run(result.instance);
+
+            console.log(getFp())
+        })()
+    </script>
 </head>
-<body>
-    
-</body>
 </html>

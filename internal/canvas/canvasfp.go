@@ -14,7 +14,7 @@ func drawCircle(ctx js.Value, x, y, radius int) {
 	ctx.Call("fill")
 }
 
-func CanvasFp(this js.Value, args []js.Value) interface{} {
+func CanvasFp() string, int {
 
 	canvas := js.Global().Get("document").Call("createElement", "canvas")
 	canvas.Set("width", 2000)
@@ -25,7 +25,11 @@ func CanvasFp(this js.Value, args []js.Value) interface{} {
 	ctx.Call("rect", 0, 0, 10, 10)
 	ctx.Call("rect", 2, 2, 6, 6)
 
+	has_winding := 0
 	winding := ctx.Call("isPointInPath", 5, 5, "evenodd").Bool() == false
+	if winding == true {
+		has_winding = 1
+	}
 
 	ctx.Set("textBaseline", "alphabetic")
 	ctx.Set("fillStyle", "#f60")
@@ -57,8 +61,5 @@ func CanvasFp(this js.Value, args []js.Value) interface{} {
 		hash = crypto.X64hash128(canvas.Call("toDataURL").String())
 	}
 
-	return map[string]interface{}{
-		"hash":    hash,
-		"winding": winding,
-	}
+	return hash, has_winding
 }
