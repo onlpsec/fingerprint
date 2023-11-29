@@ -6,7 +6,6 @@ import (
 	"github.com/onlpsec/fingerprint/internal/canvas"
 	"github.com/onlpsec/fingerprint/internal/crypto"
 	"github.com/onlpsec/fingerprint/internal/protobuf"
-	"github.com/onlpsec/fingerprint/internal/types"
 )
 
 // func getFp(this js.Value, inputs []js.Value) interface{} {
@@ -26,7 +25,6 @@ import (
 // }
 
 func ProtoTest(this js.Value, inputs []js.Value) interface{} {
-
 	hash, winding := canvas.CanvasFp()
 
 	proto_bean := map[int]interface{}{
@@ -56,10 +54,10 @@ func ProtoTest(this js.Value, inputs []js.Value) interface{} {
 func CanvasTest(this js.Value, inputs []js.Value) interface{} {
 	hash, winding := canvas.CanvasFp()
 
-	return types.FpStruct{
-		Hash:    hash,
-		Winding: winding,
-	}
+	return js.ValueOf(map[string]interface{}{
+		"hash":    hash,
+		"winding": winding,
+	})
 }
 
 func main() {
