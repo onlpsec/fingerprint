@@ -1,12 +1,12 @@
 <html>
 <head>
-    <script src="./static/init.min.js"></script>
-    <script src="./static/gzip.min.js"></script>
+    <script src="./static/js/init.min.js"></script>
+    <script src="./static/js/gzip.min.js"></script>
     <script>
         (async () => {
             const loader = new WasmLoader();
 
-            let data = await (await fetch("./../dist/script.min.wasm")).arrayBuffer()
+            let data = await (await fetch("./dist/script.min.wasm")).arrayBuffer()
             
             let buffer = gzip.ungzip(data);
             if (buffer[0] === 0x1f && buffer[1] === 0x8b) {
@@ -15,7 +15,8 @@
 
             let result  = await WebAssembly.instantiate(buffer, loader.importObject); loader.run(result.instance);
 
-            console.log(getFp())
+            console.log(CanvasTest())
+            console.log(ProtoTest())
         })()
     </script>
 </head>
