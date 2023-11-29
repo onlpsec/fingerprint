@@ -205,3 +205,15 @@ func (s *sum128) Size() int {
 func (s *sum128) BlockSize() int {
 	return 1
 }
+
+func X64hash128(content string) string {
+	hash := New128WithSeed(1234)
+	data := []byte(content)
+	hash.Write(data)
+	hashedValue := hash.Sum(nil)
+
+	hexStr := make([]byte, EncodedLen(len(hashedValue)))
+	Encode(hexStr, hashedValue)
+
+	return string(hexStr)
+}

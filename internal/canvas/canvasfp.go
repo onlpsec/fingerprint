@@ -14,18 +14,6 @@ func drawCircle(ctx js.Value, x, y, radius int) {
 	ctx.Call("fill")
 }
 
-func x64hash128(content string) string {
-	hash := crypto.New128WithSeed(1234)
-	data := []byte(content)
-	hash.Write(data)
-	hashedValue := hash.Sum(nil)
-
-	hexStr := make([]byte, crypto.EncodedLen(len(hashedValue)))
-	crypto.Encode(hexStr, hashedValue)
-
-	return string(hexStr)
-}
-
 func CanvasFp(this js.Value, args []js.Value) interface{} {
 
 	canvas := js.Global().Get("document").Call("createElement", "canvas")
@@ -66,7 +54,7 @@ func CanvasFp(this js.Value, args []js.Value) interface{} {
 	hash := ""
 	if canvas.Get("toDataURL").Truthy() {
 		// x64hash128 unavailable in GO
-		hash = x64hash128(canvas.Call("toDataURL").String())
+		hash = crypto.X64hash128(canvas.Call("toDataURL").String())
 	}
 
 	return map[string]interface{}{
