@@ -53,21 +53,12 @@ gzip -9 -v -c input.wasm > output.min.wasm
 ```
 drawbacks: + `21kb` from [gzip](https://github.com/onlpsec/fingerprint/blob/main/test/static/gzip.min.js) javascript library
 
-### Credits
-- https://newassets.hcaptcha.com/c/ac578c1/hsw.js
-- https://github.com/fingerprintjs/fingerprintjs
-
-
-
-
-
-
-
-
-
-
 VsCode settings (for gopls):
 ```sh
  GOOS=js GOARCH=wasm
 ```
-- if not, you will get an annoying error for including `syscall/js`
+- if not, you will get an annoying (fake) error for including `syscall/js`
+  
+### Credits
+- https://newassets.hcaptcha.com/c/ac578c1/hsw.js
+- https://github.com/fingerprintjs/fingerprintjs
