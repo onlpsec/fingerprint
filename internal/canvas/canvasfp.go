@@ -14,7 +14,7 @@ func drawCircle(ctx js.Value, x, y, radius int) {
 	ctx.Call("fill")
 }
 
-func CanvasFp() string, int {
+func CanvasFp() (string, int) {
 
 	canvas := js.Global().Get("document").Call("createElement", "canvas")
 	canvas.Set("width", 2000)

@@ -26,14 +26,14 @@ import (
 
 func ProtoTest(this js.Value, inputs []js.Value) interface{} {
 
-	canvas_fp := canvas.CanvasFp()
+	hash, winding := canvas.CanvasFp()
 
 	proto_bean := map[int]interface{}{
 		1: "field_ome",
 		2: 2,
 		3: map[int]interface{}{
-			1: canvas_fp["hash"].(string),
-			2: canvas_fp["winding"].(int),
+			1: hash,
+			2: winding,
 		},
 		4: "abcdef",
 		5: "field_ome",
