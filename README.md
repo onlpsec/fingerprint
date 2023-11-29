@@ -1,2 +1,2 @@
 # fingerprint
- Js/Wasm Obfuscated bot detection & API protection
+    Js/Wasm Obfuscated bot detection & API protection

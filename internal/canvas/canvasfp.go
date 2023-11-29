@@ -1,12 +1,12 @@
 package canvas
 
 import (
-	x "syscall/js"
+	"syscall/js"
 
 	"github.com/onlpsec/fingerprint/internal/crypto"
 )
 
-func drawCircle(ctx x.Value, x, y, radius int) {
+func drawCircle(ctx js.Value, x, y, radius int) {
 	Pi := 3.14159265358979323846264338327950288419716939937510582097494459
 	ctx.Call("beginPath")
 	ctx.Call("arc", x, y, radius, 0, Pi*2, true)
@@ -26,9 +26,9 @@ func x64hash128(content string) string {
 	return string(hexStr)
 }
 
-func CanvasFp(this x.Value, args []x.Value) interface{} {
+func CanvasFp(this js.Value, args []js.Value) interface{} {
 
-	canvas := x.Global().Get("document").Call("createElement", "canvas")
+	canvas := js.Global().Get("document").Call("createElement", "canvas")
 	canvas.Set("width", 2000)
 	canvas.Set("height", 200)
 	canvas.Get("style").Set("display", "inline")
