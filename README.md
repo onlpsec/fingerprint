@@ -3,7 +3,7 @@ Js/Wasm Obfuscated fingerprinting, bot detection & API protection library
 
 state: `Pre-alpha`
 
-To implement:
+### To implement:
 - [x] Canvas Fp
 - [x] Implement ProtoBuf protocol for communication
 - [ ] If not switching to another languge/compiling method, optimise wasm loading and glue code
@@ -52,6 +52,18 @@ drawback: limited library implementation - solution: implement libraries nativel
 gzip -9 -v -c input.wasm > output.min.wasm
 ```
 drawbacks: + `21kb` from [gzip](https://github.com/onlpsec/fingerprint/blob/main/test/static/gzip.min.js) javascript library
+
+### Credits
+- https://newassets.hcaptcha.com/c/ac578c1/hsw.js
+- https://github.com/fingerprintjs/fingerprintjs
+
+
+
+
+
+
+
+
 
 
 VsCode settings (for gopls):
