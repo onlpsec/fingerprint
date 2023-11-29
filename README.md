@@ -6,6 +6,7 @@ state: `Pre-alpha`
 To implement:
 - [x] Canvas Fp
 - [x] Implement ProtoBuf protocol for communication
+- [ ] If not switching to another languge/compiling method, optimise wasm loading and glue code
 - [ ] Advanced Canvas Fp
 - [ ] WebGl Fp & Params Fp
 - [ ] Screen Fp / Browser properties
