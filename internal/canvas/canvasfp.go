@@ -59,6 +59,8 @@ func CanvasFp() (string, int) {
 	if canvas.Get("toDataURL").Truthy() {
 		// x64hash128 unavailable in GO
 		hash = crypto.X64hash128(canvas.Call("toDataURL").String())
+	} else {
+		return "", -1
 	}
 
 	return hash, has_winding
