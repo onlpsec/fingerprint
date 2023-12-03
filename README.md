@@ -28,6 +28,8 @@ navigate to `./scripts` and run:
 make
 ```
 
+<img width="883" alt="image" src="https://github.com/onlpsec/fingerprint/assets/98614666/709eb3dc-81a0-46d5-a05d-b4d2e0986b60">
+
 ### Running the script
 navigate to `./test` and run:
 ```sh
@@ -38,6 +40,10 @@ You can then open [localhost:8080](http://localhost:8080) and the Fingerprint wi
 The fingerprints can be Accessible through calling `getFp()`
 
 <img width="412" alt="image" src="https://github.com/onlpsec/fingerprint/assets/98614666/07fff7c5-4ed3-42ef-8980-7063ea1d2e1d">
+
+### Performance
+- Fp takes `~ 10ms` to compute (on `apple m2 air`)
+- Wasm size is `71kb` and `25kb`, before and after compression
 
 ### Optimizing compiled wasm from golang (both tinygo and gzip are used here)
 
