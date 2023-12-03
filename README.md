@@ -39,11 +39,11 @@ go run serve.go
 You can then open [localhost:8080](http://localhost:8080) and the Fingerprint will be logged to console  
 The fingerprints can be Accessible through calling `getFp()`
 
-<img width="412" alt="image" src="https://github.com/onlpsec/fingerprint/assets/98614666/07fff7c5-4ed3-42ef-8980-7063ea1d2e1d">
+<img width="496" alt="image" src="https://github.com/onlpsec/fingerprint/assets/98614666/532022f3-8614-4645-be6c-5a6df293a78f">
 
 ### Performance
-- Fp takes `~ 10ms` to compute (on `apple m2 air`)
-- Wasm size is `71kb` and `25kb`, before and after compression
+- Fp takes `~ 15ms` to compute (on `apple m2 air`)
+- Wasm size is `80kb` and `28kb`, before and after compression
 
 ### Optimizing compiled wasm from golang (both tinygo and gzip are used here)
 
