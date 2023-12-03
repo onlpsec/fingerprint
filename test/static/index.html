@@ -15,8 +15,7 @@
 
             let result  = await WebAssembly.instantiate(buffer, loader.importObject); loader.run(result.instance);
 
-            console.log(CanvasTest())
-            console.log(ProtoTest())
+            console.log(getFp())
         })()
     </script>
 </head>
