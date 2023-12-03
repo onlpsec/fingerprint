@@ -41,6 +41,7 @@ func getFp(this js.Value, inputs []js.Value) interface{} {
 	start := time.Now()
 	canvas_fp, canvas_winding := canvas.CanvasFp()
 	webgl_fp := webgl.WebglFp()
+	webgl_params := webgl.GetWebGLParameters()
 
 	performance := time.Since(start).Seconds()
 
@@ -51,6 +52,11 @@ func getFp(this js.Value, inputs []js.Value) interface{} {
 		},
 		"webgl": map[string]interface{}{
 			"fp": webgl_fp,
+			"params": map[string]interface{}{
+				"extensions":      webgl_params.Extensions,
+				"general":         webgl_params.General,
+				"shaderprecision": webgl_params.ShaderPrecision,
+			},
 		},
 		"elapsed": performance,
 	})

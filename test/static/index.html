@@ -16,6 +16,7 @@
             let result  = await WebAssembly.instantiate(buffer, loader.importObject); loader.run(result.instance);
 
             console.log(getFp())
+            console.log(JSON.stringify(getFp(), null, 4))
         })()
     </script>
 </head>
