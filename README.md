@@ -8,7 +8,7 @@ state: `Pre-alpha`
 - [x] Implement ProtoBuf protocol for communication
 - [ ] If not switching to another languge/compiling method, optimise wasm loading and glue code
 - [ ] Advanced Canvas Fp
-- [ ] WebGl Fp & Params Fp
+- [x] WebGl Fp & Params Fp
 - [ ] Screen Fp / Browser properties
 - [ ] Audio Fp
 - [ ] Css / Js and other fp techniques
@@ -33,10 +33,11 @@ navigate to `./test` and run:
 ```sh
 go run serve.go
 ```
-You can then open [localhost:8080](http://localhost:8080) and the canvasFp and a Protobuf will be logged to console  
-The fingerprint can be Accessible through calling `CanvasTest()`
 
-<img width="438" alt="image" src="https://github.com/onlpsec/fingerprint/assets/98614666/42289e96-c316-4ee6-96a8-a2e90f5508b5">
+You can then open [localhost:8080](http://localhost:8080) and the Fingerprint will be logged to console  
+The fingerprints can be Accessible through calling `getFp()`
+
+<img width="412" alt="image" src="https://github.com/onlpsec/fingerprint/assets/98614666/07fff7c5-4ed3-42ef-8980-7063ea1d2e1d">
 
 ### Optimizing compiled wasm from golang (both tinygo and gzip are used here)
 
